@@ -7,6 +7,8 @@ import androidx.compose.runtime.setValue
 import com.example.memo.model.MemoryCard
 
 class MemoryGame {
+    enum class SelectionResult { IGNORED, REVEALED, MATCH, MISMATCH }
+
     var cards by mutableStateOf<List<MemoryCard>>(emptyList())
         private set
 
@@ -35,18 +37,18 @@ class MemoryGame {
         score = 0
     }
 
-    fun selectCard(cardId: Int) {
-        if (pendingMismatchId != null) return
+    fun selectCard(cardId: Int): SelectionResult {
+        if (pendingMismatchId != null) return SelectionResult.IGNORED
 
-        val selectedCard = cards.find { it.id == cardId } ?: return
-        if (selectedCard.isFacedUp || selectedCard.isMatched) return
+        val selectedCard = cards.find { it.id == cardId } ?: return SelectionResult.IGNORED
+        if (selectedCard.isFacedUp || selectedCard.isMatched) return SelectionResult.IGNORED
 
         cards = cards.map { card ->
             if (card.id == cardId) card.copy(isFacedUp = true) else card
         }
 
         val openCards = cards.filter { it.isFacedUp && !it.isMatched }
-        if (openCards.size != 2) return
+        if (openCards.size != 2) return SelectionResult.REVEALED
 
         if (openCards[0].iconId == openCards[1].iconId) {
             val matchedIds = openCards.map { it.id }
@@ -54,9 +56,11 @@ class MemoryGame {
                 if (card.id in matchedIds) card.copy(isMatched = true) else card
             }
             score += 2
+            return SelectionResult.MATCH
         } else {
             nextMismatchId += 1
             pendingMismatchId = nextMismatchId
+            return SelectionResult.MISMATCH
         }
     }
 

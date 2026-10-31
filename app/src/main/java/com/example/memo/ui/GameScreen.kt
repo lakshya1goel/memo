@@ -55,7 +55,11 @@ private val cardNames = listOf(
 )
 
 @Composable
-fun GameScreen(modifier: Modifier = Modifier) {
+fun GameScreen(
+    modifier: Modifier = Modifier,
+    onCardSelected: (MemoryGame.SelectionResult) -> Unit = {},
+    onRestart: () -> Unit = {}
+) {
     val game = remember { MemoryGame() }
     val pendingMismatchId = game.pendingMismatchId
 
@@ -95,7 +99,10 @@ fun GameScreen(modifier: Modifier = Modifier) {
                 )
 
                 IconButton(
-                    onClick = { game.resetGame() },
+                    onClick = {
+                        game.resetGame()
+                        onRestart()
+                    },
                     modifier = Modifier.align(Alignment.CenterEnd)
                 ) {
                     Icon(
@@ -128,7 +135,7 @@ fun GameScreen(modifier: Modifier = Modifier) {
                     key = { card -> card.id }
                 ) { card ->
                     Card(
-                        onClick = { game.selectCard(card.id) },
+                        onClick = { onCardSelected(game.selectCard(card.id)) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .aspectRatio(1f),

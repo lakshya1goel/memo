@@ -7,8 +7,8 @@ class MemoryGameTest {
     @Test
     fun matchingPairStaysOpenAndAllowsNextSelection() {
         val game = MemoryGame()
-        game.selectCard(0)
-        game.selectCard(1)
+        assertEquals(MemoryGame.SelectionResult.REVEALED, game.selectCard(0))
+        assertEquals(MemoryGame.SelectionResult.MATCH, game.selectCard(1))
 
         assertEquals(2, game.score)
         assertTrue(game.cards.filter { it.id in 0..1 }.all { it.isMatched && it.isFacedUp })
@@ -21,11 +21,11 @@ class MemoryGameTest {
     @Test
     fun mismatchBlocksThirdCardThenClosesAndUnlocks() {
         val game = MemoryGame()
-        game.selectCard(0)
-        game.selectCard(2)
+        assertEquals(MemoryGame.SelectionResult.REVEALED, game.selectCard(0))
+        assertEquals(MemoryGame.SelectionResult.MISMATCH, game.selectCard(2))
         val mismatchId = requireNotNull(game.pendingMismatchId)
 
-        game.selectCard(4)
+        assertEquals(MemoryGame.SelectionResult.IGNORED, game.selectCard(4))
         assertFalse(game.cards.single { it.id == 4 }.isFacedUp)
         assertEquals(2, game.cards.count { it.isFacedUp })
         assertEquals(0, game.score)
@@ -42,7 +42,7 @@ class MemoryGameTest {
     fun repeatedTapsDoNotMatchACardWithItselfOrScoreTwice() {
         val game = MemoryGame()
         game.selectCard(0)
-        game.selectCard(0)
+        assertEquals(MemoryGame.SelectionResult.IGNORED, game.selectCard(0))
         assertEquals(1, game.cards.count { it.isFacedUp })
         assertEquals(0, game.score)
 
