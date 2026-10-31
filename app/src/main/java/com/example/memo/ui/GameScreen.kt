@@ -20,6 +20,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import com.example.memo.R
+import androidx.compose.runtime.LaunchedEffect
+import kotlinx.coroutines.delay
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -34,6 +36,7 @@ import com.example.memo.ui.theme.MemoTheme
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
+import kotlin.time.Duration.Companion.milliseconds
 
 private val cardImages = listOf(
     R.drawable.card_fox,
@@ -54,6 +57,14 @@ private val cardNames = listOf(
 @Composable
 fun GameScreen(modifier: Modifier = Modifier) {
     val game = remember { MemoryGame() }
+    val pendingMismatchId = game.pendingMismatchId
+
+    LaunchedEffect(game, pendingMismatchId) {
+        if (pendingMismatchId != null) {
+            delay(500L.milliseconds)
+            game.hideMismatchedCards(pendingMismatchId)
+        }
+    }
 
     Box(modifier = modifier.fillMaxSize()) {
         Image(
@@ -106,8 +117,11 @@ fun GameScreen(modifier: Modifier = Modifier) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(4),
                 modifier = Modifier.fillMaxWidth().weight(1f),
-                contentPadding = PaddingValues(vertical = 20.dp),
+                contentPadding = PaddingValues(vertical = 50.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(
+                    space = 8.dp,
+                ),
             ) {
                 items(
                     items = game.cards,
