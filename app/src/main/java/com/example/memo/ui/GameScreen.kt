@@ -15,19 +15,25 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import com.example.memo.R
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.memo.game.MemoryGame
 import com.example.memo.ui.theme.MemoTheme
 import androidx.compose.ui.unit.dp
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 
 private val cardImages = listOf(
     R.drawable.card_fox,
@@ -58,50 +64,92 @@ fun GameScreen(modifier: Modifier = Modifier) {
         )
 
         Column(
-            modifier = modifier.fillMaxSize().padding(16.dp)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(
-                text = "Memory Game",
-                style = MaterialTheme.typography.headlineMedium,
-                color = Color(0xFF243D2C)
-            )
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Memory Game",
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = Color(0xFF243D2C),
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 48.dp)
+                )
+
+                IconButton(
+                    onClick = { game.resetGame() },
+                    modifier = Modifier.align(Alignment.CenterEnd)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Refresh,
+                        contentDescription = "Restart game",
+                        tint = Color(0xFF243D2C)
+                    )
+                }
+            }
 
             Text(
                 text = "Score: ${game.score}",
                 style = MaterialTheme.typography.titleLarge,
-                color = Color(0xFF243D2C)
+                color = Color(0xFF243D2C),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
             )
 
             LazyVerticalGrid(
                 columns = GridCells.Fixed(4),
-                modifier = modifier.fillMaxWidth().weight(1f),
-                contentPadding = PaddingValues(vertical = 8.dp),
+                modifier = Modifier.fillMaxWidth().weight(1f),
+                contentPadding = PaddingValues(vertical = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(
                     items = game.cards,
                     key = { card -> card.id }
                 ) { card ->
                     Card(
+                        onClick = { game.selectCard(card.id) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .aspectRatio(1f),
                         shape = RoundedCornerShape(16.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFFDFBF5)
+                            containerColor = if (card.isFacedUp) {
+                                Color(0xFFFDFBF5)
+                            } else {
+                                Color(0xFF386B50)
+                            }
                         )
                     ) {
-                        Image(
-                            painter = painterResource(
-                                cardImages[card.iconId]
-                            ),
-                            contentDescription = cardNames[card.iconId],
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(8.dp)
-                        )
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            if (card.isFacedUp) {
+                                Image(
+                                    painter = painterResource(
+                                        cardImages[card.iconId]
+                                    ),
+                                    contentDescription = cardNames[card.iconId],
+                                    contentScale = ContentScale.Fit,
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(8.dp)
+                                )
+                            } else {
+                                Text(
+                                    text = "?",
+                                    style = MaterialTheme.typography.headlineLarge,
+                                    color = Color.White
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -112,7 +160,7 @@ fun GameScreen(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GameScreenPreview() {
-    MemoTheme() {
+    MemoTheme {
         GameScreen()
     }
 }
