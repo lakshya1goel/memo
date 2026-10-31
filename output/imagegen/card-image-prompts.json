@@ -1,0 +1,45 @@
+{
+  "generator": "Built-in image_gen",
+  "assets": [
+    {
+      "name": "fox",
+      "file": "card_fox.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly orange fox with pointed ears and cream cheeks, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    },
+    {
+      "name": "panda",
+      "file": "card_panda.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly black and white panda with round ears, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    },
+    {
+      "name": "frog",
+      "file": "card_frog.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly bright green frog with rounded protruding eyes, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    },
+    {
+      "name": "owl",
+      "file": "card_owl.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly purple owl with large golden eyes and small ear tufts, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    },
+    {
+      "name": "cat",
+      "file": "card_cat.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly blue gray cat with triangular ears and whiskers, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    },
+    {
+      "name": "rabbit",
+      "file": "card_rabbit.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly white rabbit with tall pink inner ears, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    },
+    {
+      "name": "penguin",
+      "file": "card_penguin.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly black and white penguin with an orange beak, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    },
+    {
+      "name": "lion",
+      "file": "card_lion.png",
+      "prompt": "Use case: stylized-concept. Asset type: one square Android memory matching card illustration. Subject: a friendly golden lion with a round warm brown mane, head only, facing straight forward. Style: polished cute matte clay 3D illustration, rounded simple forms, tiny glossy black eyes except the owl, subtle soft highlights, cheerful expression, strongly recognizable silhouette readable at small sizes. Composition: single animal head centered, entire head and ears visible, occupies about 75 percent of square canvas, balanced generous transparent padding. True transparent background. No body, no scenery, no badge, no border, no lettering, no watermark, no props or floating decorations. This is one of a coordinated eight-animal memory card set."
+    }
+  ]
+}

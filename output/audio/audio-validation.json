@@ -1,0 +1,53 @@
+{
+  "provenance": "Original procedural synthesis; no external samples.",
+  "reports": [
+    {
+      "file": "music_garden_loop.wav",
+      "seconds": 20,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitDepth": 16,
+      "bytes": 1764044,
+      "peak": 0.28,
+      "rms": 0.06933449226569079,
+      "boundaryStep": 0.0020235883868307703,
+      "largestStep": 0.03200891029987943
+    },
+    {
+      "file": "sfx_card_tap.wav",
+      "seconds": 0.13,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitDepth": 16,
+      "bytes": 11510,
+      "peak": 0.42,
+      "rms": 0.1153958635482461,
+      "boundaryStep": 0,
+      "largestStep": 0.05968049780422653
+    },
+    {
+      "file": "sfx_pair_match.wav",
+      "seconds": 0.9,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitDepth": 16,
+      "bytes": 79424,
+      "peak": 0.55,
+      "rms": 0.14520573095192454,
+      "boundaryStep": 0,
+      "largestStep": 0.08933393110750996
+    },
+    {
+      "file": "sfx_pair_miss.wav",
+      "seconds": 0.65,
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitDepth": 16,
+      "bytes": 57374,
+      "peak": 0.38,
+      "rms": 0.11496794771693844,
+      "boundaryStep": 0,
+      "largestStep": 0.02026530565656526
+    }
+  ]
+}
